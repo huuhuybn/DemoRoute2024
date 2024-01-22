@@ -30,7 +30,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 echo $url . ' -- ' . $method;
 // nạp địa chỉ vào route để route điều hướng
 $router->handleRoute($url,$method);
-
 ?>
 
 
