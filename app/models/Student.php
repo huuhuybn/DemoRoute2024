@@ -41,6 +41,8 @@ class Student extends Person
 
     function logout()
     {
+        // hủy giá trị đã lưu trong Session
+        session_destroy();
         // TODO: Implement logout() method.
     }
 }
