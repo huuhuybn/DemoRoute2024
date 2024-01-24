@@ -15,11 +15,11 @@
 require './vendor/autoload.php';
 use Huuhu\Demo\controllers\Router;
 use Huuhu\Demo\controllers\StudentController;
+session_start();
 // dinh nghia đâu là file sẽ hướng mọi request vào !!!!! rewrite path/ url!!!
-
 if (isset($_SESSION['username'])){
-    echo 'Xin chao : ' .$_SESSION['username'];
-}
+    echo 'Xin chao : ' .$_SESSION['username'] . '</br>';
+}else echo 'Login';
 $router = new Router();
 //    /DemoRoute/index.php
 $router->get('/DemoRoute/index.php',[new StudentController(), 'index']);

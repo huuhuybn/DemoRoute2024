@@ -38,7 +38,6 @@ class StudentController
             // truy van database de kiem tra gia tri !!!
             $student = new Student();
             $kq = $student->login($username,$password);
-            session_start();
             if (isset($kq)) {
                 $_SESSION['username'] = $username;
                 echo 'Login Thanh Cong';
