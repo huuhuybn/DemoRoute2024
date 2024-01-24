@@ -2,6 +2,9 @@
 
 namespace Huuhu\Demo\controllers;
 
+use Huuhu\Demo\base\DBMySQL;
+use Huuhu\Demo\models\Student;
+
 class StudentController
 {
     public function index(){
@@ -33,7 +36,14 @@ class StudentController
             $username = $_POST['username'];
             $password = $_POST['password'];
             // truy van database de kiem tra gia tri !!!
-            echo "Dang nhap thanh cong";
+            $student = new Student();
+            $kq = $student->login($username,$password);
+            session_start();
+            if (isset($kq)) {
+                $_SESSION['username'] = $username;
+                echo 'Login Thanh Cong';
+            }
+            else echo 'Login Khong Thanh Cong';
         }else {
             echo 'Vui long nhap username va password';
         }

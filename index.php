@@ -17,6 +17,9 @@ use Huuhu\Demo\controllers\Router;
 use Huuhu\Demo\controllers\StudentController;
 // dinh nghia đâu là file sẽ hướng mọi request vào !!!!! rewrite path/ url!!!
 
+if (isset($_SESSION['username'])){
+    echo 'Xin chao : ' .$_SESSION['username'];
+}
 $router = new Router();
 //    /DemoRoute/index.php
 $router->get('/DemoRoute/index.php',[new StudentController(), 'index']);

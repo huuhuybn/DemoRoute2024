@@ -9,7 +9,7 @@ abstract class Person
     public $phone;
 
     abstract function profile();
-    abstract function login();
+    abstract function login($username,$password);
     abstract function logout();
 
 }
