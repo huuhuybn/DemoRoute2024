@@ -8,12 +8,11 @@ class DBMySQL
 
     static $db;
 
-    static function getDBInstance()
-    {
-        $servername = 'sql.freedb.tech';
-        $username = 'freedb_huynh2123';
-        $password = '8n6Re@kKFV?pY*8';
-        $database_name = 'freedb_FreeDB123';
+    static function getDBInstance(){
+        $servername = $_ENV['SERVER_URL'];
+        $username = $_ENV['TK'];
+        $password = $_ENV['MK'];
+        $database_name = $_ENV['DB'];
         if (!isset($db)) {
             // khoi tao ket noi DB !!!
             self::$db = new \PDO("mysql:host={$servername};
