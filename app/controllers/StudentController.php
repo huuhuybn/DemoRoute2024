@@ -4,15 +4,22 @@ namespace Huuhu\Demo\controllers;
 
 use Huuhu\Demo\base\DBMySQL;
 use Huuhu\Demo\models\Student;
+use eftec\bladeone\BladeOne;
 
 class StudentController
 {
     public function index()
     {
-        // xy ly logic
-        // ket noi database
-        // hien thi tren view!!!!
-        echo 'Hello INDEX';
+        //echo __DIR__ . '/views';
+        $views = './app/views';
+        $cache = './app/cache';
+        $blade = new BladeOne($views, $cache,
+            BladeOne::MODE_DEBUG); // MODE_DEBUG allows to pinpoint troubles.
+        echo $blade->run("index",
+            array("variable1" => "value1",
+                "varr" => "<h1>HELLO</h1>",
+                'arr'=> [3,3,5,32,4,5,3,23,5,23]
+            )); // it calls /views/hello.blade.php
     }
 
     public function edit()
